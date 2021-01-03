@@ -1,0 +1,13 @@
+.feedbackOptions {
+  list-style-type: none;
+  display: flex;
+  padding-inline-start: 0px;
+}
+
+.feedbackOptionItem {
+  margin-left: 10px;
+}
+
+.button::first-letter {
+  text-transform: uppercase;
+}
