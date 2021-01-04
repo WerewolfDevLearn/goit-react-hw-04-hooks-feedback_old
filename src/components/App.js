@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import useStates from './Hooks/useStates';
 import Statistics from './Statistics/Statistics';
 import Notification from './Notification/Notification';
 import Section from './Section';
@@ -6,19 +6,19 @@ import Section from './Section';
 import AppStyle from './App.module.css';
 
 export default function App() {
-  const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0);
+  const [good, updateGood] = useStates(0);
+  const [neutral, updateNeutral] = useStates(0);
+  const [bad, updateBad] = useStates(0);
 
-  const upDateGood = () => {
-    setGood(s => s + 1);
-  };
-  const upDateNeutral = () => {
-    setNeutral(s => s + 1);
-  };
-  const upDateBad = () => {
-    setBad(s => s + 1);
-  };
+  // const upDateGood = () => {
+  //   setGood(s => s + 1);
+  // };
+  // const upDateNeutral = () => {
+  //   setNeutral(s => s + 1);
+  // };
+  // const upDateBad = () => {
+  //   setBad(s => s + 1);
+  // };
   const total = good + neutral + bad;
 
   const countPositiveFeedbackPercentage = () => {
@@ -31,17 +31,17 @@ export default function App() {
       <Section title="Please leave feedback">
         <ul className={AppStyle.feedbackOptions}>
           <li className={AppStyle.feedbackOptionItem}>
-            <button type="button" key="ButtonGood" onClick={upDateGood}>
+            <button type="button" key="ButtonGood" onClick={updateGood}>
               Good
             </button>
           </li>
           <li className={AppStyle.feedbackOptionItem}>
-            <button type="button" key="ButtonNeutral" onClick={upDateNeutral}>
+            <button type="button" key="ButtonNeutral" onClick={updateNeutral}>
               Neutral
             </button>
           </li>
           <li className={AppStyle.feedbackOptionItem}>
-            <button type="button" key="ButtonNeutral" onClick={upDateBad}>
+            <button type="button" key="ButtonNeutral" onClick={updateBad}>
               Bad
             </button>
           </li>
